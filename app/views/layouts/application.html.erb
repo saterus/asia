@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asia</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="header">
+  <% if current_agent %>
+    <%= link_to 'Log Out', log_out_path %>
+  <% else %>
+    <%= link_to 'Log In', log_in_path %>
+  <% end %>
+</div>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+= form_for @cable do |f|
+  - if @cable.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cable.errors.count, "error")} prohibited this cable from being saved:"
+      %ul
+        - @cable.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+
+  .field
+    = f.label :content
+    = f.text_area :content
+
+  .field
+    = f.label :sender_id
+    = f.collection_select :sender_id, Agent.all, :id, :code_name
+
+  .actions
+    = f.submit 'Save'

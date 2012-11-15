@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108004934) do
+ActiveRecord::Schema.define(:version => 20121115011953) do
 
   create_table "agents", :force => true do |t|
     t.string   "code_name"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20121108004934) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "cables", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "sender_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

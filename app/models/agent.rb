@@ -1,6 +1,8 @@
 require 'bcrypt'
 
 class Agent < ActiveRecord::Base
+  has_many :cables, :foreign_key => "sender_id"
+
   attr_accessor :password
   attr_accessible :code_name, :email, :github,
                   :password, :password_confirmation

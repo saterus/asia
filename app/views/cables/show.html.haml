@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @cable.title
+%p
+  %b Content:
+  = @cable.content
+%p
+  %b Sender:
+  = @cable.sender.code_name
+
+= link_to 'Edit', edit_cable_path(@cable)
+\|
+= link_to 'Back', cables_path

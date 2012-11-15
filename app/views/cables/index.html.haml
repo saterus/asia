@@ -1,0 +1,23 @@
+%h1 Listing cables
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th Sender
+    %th
+    %th
+    %th
+
+  - @cables.each do |cable|
+    %tr
+      %td= cable.title
+      %td= cable.content
+      %td= cable.sender.code_name
+      %td= link_to 'Show', cable
+      %td= link_to 'Edit', edit_cable_path(cable)
+      %td= link_to 'Destroy', cable, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Cable', new_cable_path

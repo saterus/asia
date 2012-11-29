@@ -1,0 +1,15 @@
+.header
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        = link_to 'ASIA', root_path, class: 'brand'
+
+        %ul.nav
+          %li= link_to 'Cables', cables_path
+
+        %ul.nav.pull-right
+          %li
+            - if current_agent
+              = link_to 'Log Out', log_out_path
+            - else
+              = link_to 'Log In', log_in_path

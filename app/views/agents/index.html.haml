@@ -1,22 +1,27 @@
 %h1 Listing agents
 
-%table
+%table.table.table-hover
   %tr
     %th Code Name
     %th Email
     %th Github
-    %th Actions
     %th
     %th
+
 
   - @agents.each do |agent|
     %tr
       %td= link_to agent.code_name, agent_path(agent)
       %td= agent.email
       %td= agent.github
-      %td= link_to 'Show', agent
-      %td= link_to 'Edit', edit_agent_path(agent)
-      %td= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' }
+      %td
+        = link_to edit_agent_path(agent) do
+          %i.icon-edit
+          Edit
+      %td
+        = link_to agent, method: :delete, data: { confirm: 'Are you sure?' } do
+          %i.icon-remove
+          Remove
 
 %br
 
